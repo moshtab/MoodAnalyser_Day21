@@ -6,22 +6,28 @@ import org.junit.Test;
 
 public class MoodAnalyserTest {
 
-	@Test  //using default Constructor
+	@Test // using default Constructor
 	public void shouldReturnHappyOrSadByRespondingFromAMessageUsingConstructor() {
 		MoodAnalyser mood = new MoodAnalyser();
 		assertEquals("SAD", mood.analyseMood());
 	}
 
-	@Test //using parameterised Constructor
+	@Test // using parameterised Constructor
 	public void shouldReturnHappyOrSadByRespondingFromAMessageUsingConstructorParameter() {
 		MoodAnalyser mood = new MoodAnalyser("Iam Feeling happy ");
 		assertEquals("HAPPY", mood.analyseMood());
 	}
 
-	@Test //normal method
+	@Test // normal method
 	public void shouldReturnHappyOrSadByRespondingFromAMessage() {
 		MoodAnalyser mood = new MoodAnalyser();
-		assertEquals("HAPPY", mood.analyseMood("Iam in any Mood "));
+		assertEquals("SAD", mood.analyseMood("Iam feeling Sad"));
+	}
+
+	@Test
+	public void givenNullMoodShouldReturnHappy() {
+		MoodAnalyser mood = new MoodAnalyser();
+		assertEquals("HAPPY", mood.analyseMood(null));
 	}
 
 }
